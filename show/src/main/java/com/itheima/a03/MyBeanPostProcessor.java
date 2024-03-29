@@ -13,11 +13,6 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor,
 
     private static final Logger log = LoggerFactory.getLogger(MyBeanPostProcessor.class);
 
-    @Override
-    public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {
-        if (beanName.equals("lifeCycleBean"))
-            log.debug("<<<<<< 销毁之前执行, 如 @PreDestroy");
-    }
 
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
@@ -55,4 +50,11 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor,
             log.debug("<<<<<< 初始化之后执行, 这里返回的对象会替换掉原本的 bean, 如代理增强");
         return bean;
     }
+
+    @Override
+    public void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException {
+        if (beanName.equals("lifeCycleBean"))
+            log.debug("<<<<<< 销毁之前执行, 如 @PreDestroy");
+    }
+
 }
