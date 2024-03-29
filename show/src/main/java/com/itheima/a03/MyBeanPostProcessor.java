@@ -8,6 +8,9 @@ import org.springframework.beans.factory.config.DestructionAwareBeanPostProcesso
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.stereotype.Component;
 
+/**
+ * bean的生命周期
+ */
 @Component
 public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor, DestructionAwareBeanPostProcessor {
 
@@ -20,7 +23,7 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor,
             log.debug("<<<<<< 实例化之前执行, 这里返回的对象会替换掉原本的 bean");
         return null;
     }
-
+    // <<<<<< 实例化
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         if (beanName.equals("lifeCycleBean")) {
@@ -43,7 +46,7 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor,
             log.debug("<<<<<< 初始化之前执行, 这里返回的对象会替换掉原本的 bean, 如 @PostConstruct、@ConfigurationProperties");
         return bean;
     }
-
+    // <<<<<< 初始化
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (beanName.equals("lifeCycleBean"))

@@ -5,6 +5,9 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 设计模式：模板方法
+ */
 public class TestMethodTemplate {
 
     public static void main(String[] args) {
