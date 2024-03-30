@@ -39,7 +39,7 @@ public class DigInAutowired {
 //        metadata.inject(bean1, "bean1", null);
 //        System.out.println(bean1);
 
-        // 3. 如何按类型查找值
+        // 3. 如何按类型查找值,metadata.inject()内部所做事情，如下
         Field bean3 = Bean1.class.getDeclaredField("bean3");
         DependencyDescriptor dd1 = new DependencyDescriptor(bean3, false);
         Object o = beanFactory.doResolveDependency(dd1, null, null, null);
