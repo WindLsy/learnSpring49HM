@@ -36,7 +36,7 @@ public class TestBeanFactory {
 
         // Bean 后处理器, 针对 bean 的生命周期的各个阶段提供扩展, 例如 @Autowired @Resource ...
         beanFactory.getBeansOfType(BeanPostProcessor.class).values().stream()
-                .sorted(beanFactory.getDependencyComparator())
+                .sorted(beanFactory.getDependencyComparator()) // bean处理器排序
                 .forEach(beanPostProcessor -> {
             System.out.println(">>>>" + beanPostProcessor);
             beanFactory.addBeanPostProcessor(beanPostProcessor);
