@@ -15,6 +15,9 @@ import org.springframework.core.type.classreading.MetadataReader;
 import java.io.IOException;
 import java.util.Set;
 
+/**
+ * bean工程后处理器
+ */
 public class AtBeanPostProcessor implements BeanDefinitionRegistryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {

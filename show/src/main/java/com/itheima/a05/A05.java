@@ -19,7 +19,7 @@ public class A05 {
         // ⬇️GenericApplicationContext 是一个【干净】的容器
         GenericApplicationContext context = new GenericApplicationContext();
         context.registerBean("config", Config.class);
-//        context.registerBean(ConfigurationClassPostProcessor.class); // @ComponentScan @Bean @Import @ImportResource
+//        context.registerBean(ConfigurationClassPostProcessor.class); // bean工厂后处理器 @ComponentScan @Bean @Import @ImportResource
 //        context.registerBean(MapperScannerConfigurer.class, bd -> { // @MapperScanner
 //            bd.getPropertyValues().add("basePackage", "com.itheima.a05.mapper");
 //        });
