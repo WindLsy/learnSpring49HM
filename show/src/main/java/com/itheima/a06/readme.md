@@ -1,0 +1,1 @@
+Aware 接口及 InitializingBean 接口
