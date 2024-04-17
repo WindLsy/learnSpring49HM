@@ -1,4 +1,4 @@
-package com.itheima.a06test;
+package cn.linshiyou.a06test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
