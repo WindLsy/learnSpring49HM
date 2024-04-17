@@ -7,11 +7,14 @@ import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import org.springframework.context.support.GenericApplicationContext;
 
+import javax.annotation.PostConstruct;
+
 /*
     Aware 接口及 InitializingBean 接口
  */
 public class A06 {
     private static final Logger log = LoggerFactory.getLogger(A06.class);
+
 
     public static void main(String[] args) {
         /*
@@ -23,12 +26,12 @@ public class A06 {
 
          */
         GenericApplicationContext context = new GenericApplicationContext();
-//        context.registerBean("myBean", MyBean.class);
+        context.registerBean("myBean", MyBean.class);
 //        context.registerBean("myConfig1", MyConfig1.class);
-        context.registerBean("myConfig2", MyConfig2.class);
-        context.registerBean(AutowiredAnnotationBeanPostProcessor.class);
-        context.registerBean(CommonAnnotationBeanPostProcessor.class);
-        context.registerBean(ConfigurationClassPostProcessor.class);
+//        context.registerBean("myConfig2", MyConfig2.class);
+//        context.registerBean(AutowiredAnnotationBeanPostProcessor.class);
+//        context.registerBean(CommonAnnotationBeanPostProcessor.class);
+//        context.registerBean(ConfigurationClassPostProcessor.class);
 
         /*
             2. 有同学说: b、c、d 的功能用 @Autowired 就能实现啊, 为啥还要用 Aware 接口呢

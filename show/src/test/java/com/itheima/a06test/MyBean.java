@@ -1,4 +1,4 @@
-package com.itheima.a06;
+package com.itheima.a06test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,23 +11,28 @@ import org.springframework.context.ApplicationContextAware;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * Aware接口测试
+ *
+ * @author LJ
+ * @create 2024/4/17
+ */
 public class MyBean implements BeanNameAware, ApplicationContextAware, InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(MyBean.class);
-
     @Override
     public void setBeanName(String name) {
-        log.debug("当前bean " + this + " 名字叫:" + name);
+        log.debug("1. 当前bean : " + this + " 名字叫:" + name);
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        log.debug("当前bean " + this + " 容器是:" + applicationContext);
+        log.debug("2. 当前bean : " + this + " 容器是:" + applicationContext);
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.debug("当前bean " + this + " 初始化");
+        log.debug("3. 当前bean : " + this + " 初始化完成");
     }
 
     /**
@@ -36,14 +41,14 @@ public class MyBean implements BeanNameAware, ApplicationContextAware, Initializ
      */
     @Autowired
     public void aaa(ApplicationContext applicationContext) {
-        log.debug("当前bean " + this + " 使用@Autowired 容器是:" + applicationContext);
+        log.debug("@Autowired 当前bean : " + this + " 容器是:" + applicationContext);
     }
 
     /**
-     * 使用 @PostConstruct 代替 InitializingBean 接口
+     * 尝试使用 @PostConstruct 代替 InitializingBean 接口
      */
     @PostConstruct
     public void init() {
-        log.debug("当前bean " + this + " 使用@PostConstruct 初始化");
+        log.debug("@PostConstruct ：当前bean : " + this + " 初始化完成");
     }
 }
